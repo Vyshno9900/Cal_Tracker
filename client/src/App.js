@@ -21,18 +21,19 @@ export default function VyshnoApp() {
     setLoading(true);
     setResult(null);
 
-    const res = await fetch("https://YOUR-BACKEND-URL.onrender.com/api/gemini-food", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        age: form.age,
-        sex: form.sex,
-        weight: form.weightKg,
-        height: form.heightCm,
-        goal: form.goal,
-        calories: 2200 // you can calculate dynamically
-      })
-    });
+    const res = await fetch("https://cal-tracker-1-backend.onrender.com/api/gemini-food", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    age: form.age,
+    sex: form.sex,
+    weight: form.weightKg,
+    height: form.heightCm,
+    goal: form.goal,
+    calories: 2200
+  })
+});
+
 
     const data = await res.json();
     setResult(data.foodPlan || []);
